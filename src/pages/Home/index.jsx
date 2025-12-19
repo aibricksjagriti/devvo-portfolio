@@ -9,6 +9,8 @@ import HomeScene from "./HomeScene";
 import { BACKGROUND_BLACK } from "./colors";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 import productsConfig from "../../config/products.json";
+import founder from "../../assets/ashutosh-1.jpeg";
+import founder1 from "../../assets/ashwini.jpeg";
 
 // Founder images
 const founderImage =
@@ -303,7 +305,7 @@ export default function HomePage() {
                   {/* Team Member Image */}
                   <div className="relative w-full aspect-[3/4] overflow-hidden bg-gray-800">
                     <img
-                      src="/src/assets/ashutosh-1.jpeg"
+                      src={founder}
                       alt="Founder & CEO"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
@@ -344,7 +346,7 @@ export default function HomePage() {
                   {/* Team Member Image */}
                   <div className="relative w-full aspect-[3/4] overflow-hidden bg-gray-800">
                     <img
-                      src="/src/assets/ashwini.jpeg"
+                      src={founder1}
                       alt="Founder & CEO"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />

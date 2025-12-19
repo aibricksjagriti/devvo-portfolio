@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Building, Home, Brain, GraduationCap, Menu, X } from "lucide-react";
 import productsConfig from "../config/products.json";
+import logo from "../assets/logo.png";
 
 const productLinks = [
   { id: "home", nameKey: "navHome", icon: Home, path: "/" },
@@ -67,7 +68,7 @@ export default function Header({ onChangeLang }) {
           Devvo
         </h1> */}
         <a href="/">
-          <img src="/src/assets/logo.png" alt="" className="h-20 w-60" />
+          <img src={logo} alt="" className="h-20 w-60" />
         </a>
         <nav className="items-center hidden gap-2 md:flex">
           <NavLinks />
