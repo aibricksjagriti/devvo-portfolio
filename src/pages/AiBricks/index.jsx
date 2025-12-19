@@ -1,0 +1,183 @@
+import React, { Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import { Html, ScrollControls } from "@react-three/drei";
+import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import * as THREE from "three";
+import AiBricksScene from "./AiBricksScene";
+import colors from "./colors";
+import { useReducedMotion } from "../../hooks/useReducedMotion";
+
+/**
+ * AiBricks Page - Real estate development and construction
+ */
+export default function AiBricksPage() {
+  const { t } = useTranslation();
+  const numPages = 5;
+  const prefersReducedMotion = useReducedMotion();
+
+  return (
+    <div className="fixed inset-0 w-full h-full">
+      <Canvas
+        camera={{ position: [0, 20, 28], fov: 75 }}
+        shadows
+        gl={{
+          antialias: true,
+          alpha: false,
+          powerPreference: "high-performance",
+          toneMapping: THREE.ACESFilmicToneMapping,
+          toneMappingExposure: 1.5,
+        }}
+        dpr={[1, 2]}
+      >
+        <color attach="background" args={[colors.sky]} />
+        <fog attach="fog" args={[colors.sky, 30, 120]} />
+        <Suspense fallback={null}>
+          <ScrollControls
+            pages={numPages}
+            damping={prefersReducedMotion ? 1 : 0.2}
+          >
+            <AiBricksScene />
+            <Html fullscreen style={{ pointerEvents: "none", color: "white" }}>
+              {/* Hero Section */}
+              <div
+                className="flex flex-col items-center justify-center w-full h-screen p-4 text-center"
+                style={{ top: "0vh" }}
+              >
+                <motion.h2
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ amount: 0.5 }}
+                  transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
+                  className="text-4xl font-bold md:text-6xl"
+                >
+                  {t("aiBricksTitle")}
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{
+                    delay: prefersReducedMotion ? 0 : 0.2,
+                    duration: prefersReducedMotion ? 0 : 0.8,
+                  }}
+                  viewport={{ amount: 0.5 }}
+                  className="max-w-lg mt-4 text-lg text-black px-6 py-4 rounded-lg bg-white/40 backdrop-blur-sm"
+                >
+                  {t("aiBricksIntro")}
+                </motion.p>
+              </div>
+
+              {/* Feature 1 */}
+              <div
+                className="flex items-center w-full h-screen"
+                style={{ top: `${100 * (numPages / 5)}vh` }}
+              >
+                <div className="w-1/2 p-8 ml-auto">
+                  <motion.h3
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
+                    className="text-3xl font-semibold text-white px-6 py-4 rounded-lg bg-black/40 backdrop-blur-sm"
+                  >
+                    {t("aiBricksFeature1Title")}
+                  </motion.h3>
+                  <motion.p
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{
+                      delay: prefersReducedMotion ? 0 : 0.2,
+                      duration: prefersReducedMotion ? 0 : 0.6,
+                    }}
+                    className="mt-2 text-black px-6 py-4 rounded-lg bg-white/40 backdrop-blur-sm"
+                  >
+                    {t("aiBricksFeature1Desc")}
+                  </motion.p>
+                </div>
+              </div>
+
+              {/* Feature 2 */}
+              <div
+                className="flex items-center w-full h-screen"
+                style={{ top: `${200 * (numPages / 5)}vh` }}
+              >
+                <div className="w-1/2 p-8 mr-auto">
+                  <motion.h3
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
+                    className="text-3xl font-semibold text-white px-6 py-4 rounded-lg bg-black/40 backdrop-blur-sm"
+                  >
+                    {t("aiBricksFeature2Title")}
+                  </motion.h3>
+                  <motion.p
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{
+                      delay: prefersReducedMotion ? 0 : 0.2,
+                      duration: prefersReducedMotion ? 0 : 0.6,
+                    }}
+                    className="mt-2 text-black px-6 py-4 rounded-lg bg-white/40 backdrop-blur-sm"
+                  >
+                    {t("aiBricksFeature2Desc")}
+                  </motion.p>
+                </div>
+              </div>
+
+              {/* Feature 3 - Sustainability */}
+              <div
+                className="flex items-center w-full h-screen"
+                style={{ top: `${300 * (numPages / 5)}vh` }}
+              >
+                <div className="w-1/2 p-8 ml-auto">
+                  <motion.h3
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
+                    className="text-3xl font-semibold text-white px-6 py-4 rounded-lg bg-black/40 backdrop-blur-sm"
+                  >
+                    Powered by Data, Driven by Trust
+                  </motion.h3>
+                  <motion.p
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{
+                      delay: prefersReducedMotion ? 0 : 0.2,
+                      duration: prefersReducedMotion ? 0 : 0.6,
+                    }}
+                    className="mt-2 text-black px-6 py-4 rounded-lg bg-white/40 backdrop-blur-sm"
+                  >
+                    Our platform leverages real-time market trends, pricing
+                    analytics, and location intelligence to provide clear
+                    insights into every property. AIBricks ensures buyers
+                    understand value, growth potential, and market positioning —
+                    enabling confident decisions backed by accurate data. By
+                    presenting complex data in a simple and transparent manner,
+                    AIBricks removes uncertainty from the buying process. Buyers
+                    gain a complete understanding of market dynamics, helping
+                    them compare options effectively and invest with confidence
+                    in properties that offer long-term value.
+                  </motion.p>
+                </div>
+              </div>
+
+              {/* Final Section */}
+              <div
+                className="flex flex-col items-center justify-center w-full h-screen p-4 text-center"
+                style={{ top: `${400 * (numPages / 5)}vh` }}
+              >
+                <motion.h2
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
+                  className="text-4xl font-bold md:text-6xl"
+                >
+                  {t("aiBricksFinal")}
+                </motion.h2>
+              </div>
+            </Html>
+          </ScrollControls>
+        </Suspense>
+      </Canvas>
+    </div>
+  );
+}

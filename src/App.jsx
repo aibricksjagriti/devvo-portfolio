@@ -1,0 +1,53 @@
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
+import LoadingSpinner from './components/LoadingSpinner.jsx';
+import productsConfig from './config/products.json';
+
+const PageRegistry = {
+  HomePage: lazy(() => import('./pages/Home/index.jsx').then(m => ({ default: m.default }))),
+  AiBricksPage: lazy(() => import('./pages/AiBricks/index.jsx').then(m => ({ default: m.default }))),
+  ProCounselPage: lazy(() => import('./pages/ProCounsel/index.jsx').then(m => ({ default: m.default }))),
+  TheMindSoulPage: lazy(() => import('./pages/TheMindSoul/index.jsx').then(m => ({ default: m.default }))),
+};
+
+function AppRouter() {
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (lng) => i18n.changeLanguage(lng);
+
+  return (
+    <BrowserRouter>
+      <div className="flex flex-col min-h-screen font-sans text-white bg-gray-900 overflow-hidden">
+        <Header onChangeLang={changeLanguage} />
+        <main className="flex-grow relative">
+          <Suspense fallback={<LoadingSpinner />}>
+            <Routes>
+              <Route path="/" element={<PageRegistry.HomePage />} />
+              {Object.values(productsConfig).map((product) => {
+                const Component = PageRegistry[product.component];
+                if (!Component) return null;
+                return (
+                  <Route
+                    key={product.id}
+                    path={`/${product.id}`}
+                    element={<Component />}
+                  />
+                );
+              })}
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </Suspense>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
+  );
+}
+
+export default AppRouter;
+
+// Export for SSR compatibility
+export { AppRouter };
