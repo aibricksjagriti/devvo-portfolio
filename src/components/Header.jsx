@@ -6,16 +6,16 @@ import productsConfig from "../config/products.json";
 import logo from "../assets/logo.png";
 
 const productLinks = [
-  { id: "home", nameKey: "navHome", icon: Home, path: "/" },
-  { id: "aiBricks", nameKey: "navAiBricks", icon: Building, path: "/aiBricks" },
+  { id: "Home", nameKey: "navHome", icon: Home, path: "/" },
+  { id: "AiBricks", nameKey: "navAiBricks", icon: Building, path: "/aiBricks" },
   {
-    id: "proCounsel",
+    id: "ProCounsel",
     nameKey: "navProCounsel",
     icon: GraduationCap,
     path: "/proCounsel",
   },
   {
-    id: "theMindSoul",
+    id: "TheMindSoul",
     nameKey: "navTheMindSoul",
     icon: Brain,
     path: "/theMindSoul",

@@ -65,6 +65,15 @@ export default function AiBricksPage() {
                 >
                   {t("aiBricksIntro")}
                 </motion.p>
+                <a
+                  href="https://www.aibricksrealtors.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ pointerEvents: "auto" }}
+                  className="inline-block px-8 py-4 text-lg font-semibold text-white transition rounded-full bg-lime-900 hover:bg-lime-800 mt-8 cursor-pointer"
+                >
+                  🌐 Explore AiBricks
+                </a>
               </div>
 
               {/* Feature 1 */}

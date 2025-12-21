@@ -1,16 +1,28 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import Header from './components/Header.jsx';
-import Footer from './components/Footer.jsx';
-import LoadingSpinner from './components/LoadingSpinner.jsx';
-import productsConfig from './config/products.json';
+import React, { Suspense, lazy } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
+import LoadingSpinner from "./components/LoadingSpinner.jsx";
+import productsConfig from "./config/products.json";
+import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
+import TermsConditions from "./pages/TermsConditions.jsx";
 
 const PageRegistry = {
-  HomePage: lazy(() => import('./pages/Home/index.jsx').then(m => ({ default: m.default }))),
-  AiBricksPage: lazy(() => import('./pages/AiBricks/index.jsx').then(m => ({ default: m.default }))),
-  ProCounselPage: lazy(() => import('./pages/ProCounsel/index.jsx').then(m => ({ default: m.default }))),
-  TheMindSoulPage: lazy(() => import('./pages/TheMindSoul/index.jsx').then(m => ({ default: m.default }))),
+  HomePage: lazy(() =>
+    import("./pages/Home/index.jsx").then((m) => ({ default: m.default }))
+  ),
+  AiBricksPage: lazy(() =>
+    import("./pages/AiBricks/index.jsx").then((m) => ({ default: m.default }))
+  ),
+  ProCounselPage: lazy(() =>
+    import("./pages/ProCounsel/index.jsx").then((m) => ({ default: m.default }))
+  ),
+  TheMindSoulPage: lazy(() =>
+    import("./pages/TheMindSoul/index.jsx").then((m) => ({
+      default: m.default,
+    }))
+  ),
 };
 
 function AppRouter() {
@@ -38,6 +50,8 @@ function AppRouter() {
                 );
               })}
               <Route path="*" element={<Navigate to="/" replace />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-conditions" element={<TermsConditions />} />
             </Routes>
           </Suspense>
         </main>

@@ -762,6 +762,16 @@ export default function ProCounselPage() {
             </motion.div>
           </div>
         </div>
+        <div className="flex items-center justify-center mt-20">
+          <a
+            href="https://www.procounsel.co.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-4 text-lg font-semibold text-black transition rounded-full bg-cyan-300 hover:bg-cyan-200"
+          >
+            🌐 Explore ProCounsel
+          </a>
+        </div>
       </section>
     </div>
   );

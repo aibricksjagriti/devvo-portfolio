@@ -5,9 +5,9 @@ const resources = {
   en: {
     translation: {
       navHome: "Home",
-      navAiBricks: "aiBricks",
-      navProCounsel: "proCounsel",
-      navTheMindSoul: "theMindSoul",
+      navAiBricks: "AiBricks",
+      navProCounsel: "ProCounsel",
+      navTheMindSoul: "TheMindSoul",
       langSwitch: "Español",
       homeTitle: "Building Tomorrow's Technology Today",
       homeSubtitle:

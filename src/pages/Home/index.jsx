@@ -315,7 +315,7 @@ export default function HomePage() {
                         FOUNDER & CEO
                       </h3>
                       <p className="text-white/80 text-xs uppercase tracking-wider">
-                        Chief Executive Officer
+                        Ashutosh
                       </p>
                     </div>
                   </div>
@@ -356,7 +356,7 @@ export default function HomePage() {
                         FOUNDER & CEO
                       </h3>
                       <p className="text-white/80 text-xs uppercase tracking-wider">
-                        Chief Executive Officer
+                        Ashwini Verma
                       </p>
                     </div>
                   </div>
