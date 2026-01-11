@@ -36,6 +36,8 @@ export default function HomePage() {
               toneMappingExposure: 1.3,
             }}
             dpr={[1, 2]}
+            /* 🔑 allows mobile scroll */
+            eventPrefix="client"
           >
             <color attach="background" args={[BACKGROUND_BLACK]} />
             <ambientLight intensity={0.5} />
@@ -414,7 +416,7 @@ export default function HomePage() {
               >
                 <div className="relative w-full aspect-[3/4] overflow-hidden bg-gray-800">
                   <img
-                    src={founderImage}
+                    src={founder}
                     alt="Founder & CEO"
                     className="w-full h-full object-cover"
                   />
@@ -424,7 +426,7 @@ export default function HomePage() {
                       FOUNDER & CEO
                     </h3>
                     <p className="text-white/80 text-xs uppercase tracking-wider">
-                      Chief Executive Officer
+                      Ashutosh
                     </p>
                   </div>
                 </div>
@@ -438,7 +440,7 @@ export default function HomePage() {
               >
                 <div className="relative w-full aspect-[3/4] overflow-hidden bg-gray-800">
                   <img
-                    src={founderImage}
+                    src={founder1}
                     alt="Founder & CEO"
                     className="w-full h-full object-cover"
                   />
@@ -448,12 +450,12 @@ export default function HomePage() {
                       FOUNDER & CEO
                     </h3>
                     <p className="text-white/80 text-xs uppercase tracking-wider">
-                      Chief Executive Officer
+                      Ashwini Verma
                     </p>
                   </div>
                 </div>
               </motion.div>
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
@@ -466,7 +468,6 @@ export default function HomePage() {
                     alt="Founder & CTO"
                     className="w-full h-full object-cover"
                   />
-                  {/* Name and Title - Overlay Bottom Left */}
                   <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/90 via-black/70 to-transparent">
                     <h3 className="text-white font-bold text-sm mb-0.5 uppercase tracking-wider">
                       FOUNDER & CTO
@@ -476,7 +477,7 @@ export default function HomePage() {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </motion.div> */}
             </div>
           </div>
         </motion.div>
