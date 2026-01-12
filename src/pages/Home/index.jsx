@@ -25,7 +25,7 @@ export default function HomePage() {
   return (
     <div className="relative w-full min-h-screen bg-gray-900 snap-y snap-mandatory overflow-y-scroll h-screen">
       {/* Hero Section with 3D Background */}
-      <div className="relative h-screen w-full overflow-hidden snap-start snap-always">
+      <div className="relative h-[90vh] w-full overflow-hidden snap-start snap-always">
         <div className="absolute inset-0">
           <Canvas
             camera={{ position: [0, 0, 10], fov: 75 }}
