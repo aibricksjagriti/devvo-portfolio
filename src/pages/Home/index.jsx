@@ -641,16 +641,22 @@ export default function HomePage() {
       </div>
 
       {/* ================= PRODUCTS ================= */}
-      <section className="relative z-10 bg-gray-900 py-20 px-4 md:snap-start min-h-screen flex items-center">
+      <section className="relative z-10 bg-gray-900 py-20 px-4 snap-start min-h-screen flex items-center">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {t("productsTitle")}
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               {t("productsSubtitle")}
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
@@ -658,13 +664,13 @@ export default function HomePage() {
                 key={product.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
                 className="pointer-events-auto"
               >
                 <Link
                   to={`/${product.id}`}
-                  className="block bg-gray-800 rounded-lg p-8 border border-gray-700 hover:border-cyan-500 transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full"
+                  className="block bg-gray-800 rounded-lg p-8 hover:bg-gray-750 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl border border-gray-700 hover:border-cyan-500 h-full"
                 >
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
@@ -674,7 +680,25 @@ export default function HomePage() {
                       {t(product.labelKey)}
                     </h3>
                   </div>
-                  <p className="text-gray-400">{t(`${product.id}Intro`)}</p>
+                  <p className="text-gray-400 leading-relaxed">
+                    {t(`${product.id}Intro`)}
+                  </p>
+                  <div className="mt-6 flex items-center text-cyan-400 font-medium">
+                    <span>Explore {t(product.labelKey)}</span>
+                    <svg
+                      className="w-5 h-5 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </div>
                 </Link>
               </motion.div>
             ))}
