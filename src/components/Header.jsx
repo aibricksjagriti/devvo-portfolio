@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Building, Home, Brain, GraduationCap, Menu, X } from "lucide-react";
+import {
+  Building,
+  Home,
+  Brain,
+  GraduationCap,
+  Menu,
+  X,
+  Users,
+} from "lucide-react";
 import productsConfig from "../config/products.json";
 import logo from "../assets/logo.png";
 
 const productLinks = [
   { id: "Home", nameKey: "navHome", icon: Home, path: "/" },
+  { id: "About Us", nameKey: "navAbout", icon: Users, path: "/about-us" },
   { id: "AiBricks", nameKey: "navAiBricks", icon: Building, path: "/aiBricks" },
   {
     id: "ProCounsel",

@@ -7,6 +7,7 @@ import LoadingSpinner from "./components/LoadingSpinner.jsx";
 import productsConfig from "./config/products.json";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import TermsConditions from "./pages/TermsConditions.jsx";
+import AboutUsPage from "./pages/AboutUs.jsx";
 
 const PageRegistry = {
   HomePage: lazy(() =>
@@ -51,6 +52,7 @@ function AppRouter() {
               })}
               <Route path="*" element={<Navigate to="/" replace />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/about-us" element={<AboutUsPage />} />
               <Route path="/terms-conditions" element={<TermsConditions />} />
             </Routes>
           </Suspense>

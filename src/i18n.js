@@ -5,6 +5,7 @@ const resources = {
   en: {
     translation: {
       navHome: "Home",
+      navAbout: "About Us",
       navAiBricks: "AiBricks",
       navProCounsel: "ProCounsel",
       navTheMindSoul: "TheMindSoul",
