@@ -531,7 +531,7 @@ import { useReducedMotion } from "../../hooks/useReducedMotion";
 import productsConfig from "../../config/products.json";
 
 import founder from "../../assets/ashutosh-1.jpeg";
-import founder1 from "../../assets/ashwini.jpeg";
+import founder1 from "../../assets/ashwini-1.jpeg";
 
 // Founder images
 const founderImage =
@@ -730,7 +730,7 @@ export default function HomePage() {
                   </h3>
                   <p className="text-gray-400">{t(`${feature}Description`)}</p>
                 </motion.div>
-              )
+              ),
             )}
           </div>
         </div>
