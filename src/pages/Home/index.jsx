@@ -584,7 +584,7 @@ export default function HomePage() {
               delay: prefersReducedMotion ? 0 : 0.2,
               duration: prefersReducedMotion ? 0 : 0.5,
             }}
-            className="text-5xl font-bold text-white md:text-7xl lg:text-8xl"
+            className="text-5xl font-bold text-white md:text-7xl lg:text-8xl mt-10"
           >
             {t("homeTitle")}
           </motion.h1>
